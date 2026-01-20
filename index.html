@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroStream | Premium Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar glass">
+            <div class="logo"><i class="fa-solid fa-plane-up"></i> AeroStream</div>
+            <div class="nav-links">
+                <a href="#" class="active">Book</a>
+                <a href="#">My Trips</a>
+                <a href="#">Check-in</a>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">JD</div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Search View -->
+            <section id="search-view" class="view active">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Explore the World</h1>
+                        <p>Experience luxury at 30,000 feet. Where will your details take you today?</p>
+                    </div>
+                    
+                    <div class="search-card glass fade-in-up">
+                        <div class="search-type">
+                            <span class="active">Round Trip</span>
+                            <span>One Way</span>
+                            <span>Multi-City</span>
+                        </div>
+                        <form id="flight-search-form">
+                            <div class="inputs-row">
+                                <div class="input-group">
+                                    <label><i class="fa-solid fa-plane-departure"></i> From</label>
+                                    <input type="text" id="from-input" placeholder="Origin City" required value="New York">
+                                </div>
+                                <div class="swap-icon">
+                                    <i class="fa-solid fa-right-left"></i>
+                                </div>
+                                <div class="input-group">
+                                    <label><i class="fa-solid fa-plane-arrival"></i> To</label>
+                                    <input type="text" id="to-input" placeholder="Destination City" required value="London">
+                                </div>
+                            </div>
+                            <div class="inputs-row">
+                                <div class="input-group">
+                                    <label><i class="fa-regular fa-calendar"></i> Departure</label>
+                                    <input type="date" id="date-depart" required>
+                                </div>
+                                <div class="input-group">
+                                    <label><i class="fa-regular fa-calendar"></i> Return</label>
+                                    <input type="date" id="date-return">
+                                </div>
+                                <div class="input-group">
+                                    <label><i class="fa-solid fa-user"></i> Travelers</label>
+                                    <select>
+                                        <option>1 Adult</option>
+                                        <option>2 Adults</option>
+                                        <option>2 Adults, 1 Child</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="search-btn">
+                                Search Flights <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results View -->
+            <section id="results-view" class="view hidden">
+                <div class="results-header">
+                    <button class="back-btn" id="back-to-search"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="route-info">
+                        <h2 id="route-display">NYC <i class="fa-solid fa-arrow-right"></i> LON</h2>
+                        <span id="date-display">Mon, 12 Oct • 1 Passenger</span>
+                    </div>
+                </div>
+                <div class="flight-list" id="flight-list">
+                    <!-- Flight cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Booking View -->
+            <section id="booking-view" class="view hidden">
+                <div class="booking-header">
+                    <button class="back-btn" id="back-to-results"><i class="fa-solid fa-arrow-left"></i></button>
+                    <h2>Confirm Your Booking</h2>
+                </div>
+                <div class="booking-layout">
+                    <div class="booking-form-container glass">
+                        <h3>Passenger Details</h3>
+                        <form id="booking-form">
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>First Name</label>
+                                    <input type="text" required placeholder="John">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Last Name</label>
+                                    <input type="text" required placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Email Address</label>
+                                    <input type="email" required placeholder="john@example.com">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Mobile Number</label>
+                                    <input type="tel" required placeholder="+1 234 567 8900">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Passport Number</label>
+                                    <input type="text" placeholder="Optional">
+                                </div>
+                            </div>
+                            
+                            <h3>Payment Method</h3>
+                            <div class="payment-options">
+                                <div class="payment-option selected">
+                                    <i class="fa-brands fa-cc-visa"></i> Visa **** 4242
+                                </div>
+                                <div class="payment-option">
+                                    <i class="fa-brands fa-apple"></i> Apple Pay
+                                </div>
+                            </div>
+
+                            <button type="submit" class="book-confirm-btn">Complete Booking</button>
+                        </form>
+                    </div>
+                    
+                    <div class="booking-summary glass" id="booking-summary-card">
+                        <!-- Summary injected here -->
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Success View -->
+            <section id="success-view" class="view hidden">
+                <div class="success-card glass scale-in-center">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h2>Booking Confirmed!</h2>
+                    <p>Your journey begins. We've sent the ticket to your email.</p>
+                    <div class="ticket-preview" id="final-ticket">
+                        <!-- Ticket details -->
+                    </div>
+                    <button class="home-btn" id="go-home">Book Another Trip</button>
+                </div>
+            </section>
+        </main>
+        
+        <div class="background-elements">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
